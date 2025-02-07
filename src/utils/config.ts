@@ -1,4 +1,4 @@
 const API_KEY = process.env.SPOONACULAR_API_KEY;
-const BASE_URL = 'https://api.spoonacular.com/recipes';
+const BASE_URL = 'https://api.spoonacular.com';
 
 export { API_KEY, BASE_URL };

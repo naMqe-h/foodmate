@@ -1,9 +1,11 @@
-import { IRandomRecipe } from '@/utils/interfaces';
+"use client"
+
+import { IRecipe } from '@/utils/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 
 
-export default function FoodCard({ id, image, title, summary, readyInMinutes, analyzedInstructions }: IRandomRecipe) {
+export default function FoodCard({ id, image, title, summary, readyInMinutes, analyzedInstructions }: IRecipe) {
     let difficulty: "Easy" | "Medium" | "Hard" = "Easy";
 
     if(analyzedInstructions[0].steps) {
