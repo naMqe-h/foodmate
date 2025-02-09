@@ -5,13 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
-export default function FoodCard({ id, image, title, summary, readyInMinutes, analyzedInstructions }: IRecipe) {
+export default function FoodCard({ id, image, title, summary = "", readyInMinutes, analyzedInstructions }: IRecipe) {
     let difficulty: "Easy" | "Medium" | "Hard" = "Easy";
 
-    if(analyzedInstructions[0].steps) {
+    if(analyzedInstructions && analyzedInstructions[0].steps) {
         if(analyzedInstructions[0].steps.length > 5) difficulty = "Medium";
         if(analyzedInstructions[0].steps.length > 15) difficulty = "Hard";
     }
+
 
     return (
         <Link href={`/recipes/${id}`} className="group">

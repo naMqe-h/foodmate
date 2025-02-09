@@ -7,7 +7,7 @@ export async function getRandomRecipes(number: number = 2): Promise<IRecipe[]> {
       `${BASE_URL}/recipes/random?apiKey=${API_KEY}&number=${number}`,
       { next: { revalidate: 600 } }
     );
-
+    
     if (!response.ok) {
       throw new Error('Failed to fetch recipes');
     }
@@ -56,6 +56,25 @@ export async function getRecipesByCategory(category: string, id: string) {
     return data.results;
   } catch (error) {
     console.error('Error fetching recipes by category:', error);
+    return [];
+  }
+}
+
+export async function searchRecipes(query: string) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/recipes/complexSearch?apiKey=${API_KEY}&query=${query}&number=20&addRecipeInformation=true`,
+      { next: { revalidate: 0 } }
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch recipes');
+    }
+
+    const data: { results: IRecipe[] } = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Error searching recipes:', error);
     return [];
   }
 }

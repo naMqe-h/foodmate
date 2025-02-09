@@ -17,9 +17,6 @@ export default function Navbar() {
             <Link href="/categories" className="text-gray-600 hover:text-orange-600 transition-colors">
               Categories
             </Link>
-            <Link href="/search" className="text-gray-600 hover:text-orange-600 transition-colors">
-              Search
-            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
