@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FoodMate 🍳
 
-## Getting Started
+FoodMate is a modern recipe discovery and search platform built with Next.js, designed to make cooking easier and more enjoyable.
 
-First, run the development server:
+## Key Features
+
+### 1. Recipe Search 🔍
+- Advanced recipe search engine
+- Filter by ingredients
+- Search by world cuisines
+- Nutritional value filtering
+
+### 2. Smart Filters ⚡
+- Ingredients (including chicken, beef, rice, vegetables)
+- Nutritional values (calories, protein, carbs, fats)
+- Cuisine types
+- Special diets (vegetarian, vegan, gluten-free)
+
+### 3. Detailed Recipe Information 📖
+- Preparation time
+- Difficulty level (Easy/Medium/Hard)
+- Nutritional values
+- Ingredients list
+- Detailed preparation instructions
+- Food photos
+
+### 4. Special Categories 🍽️
+- Main courses
+- Appetizers
+- Desserts
+- Salads
+- Soups
+- Beverages
+- Sauces
+
+### 5. Dietary Features 🥗
+Special diet indicators:
+- Vegetarian
+- Vegan
+- Gluten-free
+- Dairy-free
+- Low FODMAP
+- Healthy options
+
+## Technology Stack 💻
+
+- **Frontend**: Next.js 15.1.6
+- **UI**: TailwindCSS
+- **Animations**: Framer Motion
+- **Type Safety**: TypeScript
+
+## User Interface ✨
+- Modern, responsive design
+- Intuitive navigation
+- Recipe cards with preview
+- Interactive filters
+- Clean layout
+
+## Getting Started 🚀
 
 ```bash
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Run the development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
+## Deployment 🌐
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
