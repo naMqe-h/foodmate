@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function FoodCard({ id, image, title, summary = "", readyInMinutes, analyzedInstructions }: IRecipe) {
     let difficulty: "Easy" | "Medium" | "Hard" = "Easy";
 
-    if(analyzedInstructions && analyzedInstructions[0].steps) {
+    if(analyzedInstructions && analyzedInstructions.length > 0 && analyzedInstructions[0].steps) {
         if(analyzedInstructions[0].steps.length > 5) difficulty = "Medium";
         if(analyzedInstructions[0].steps.length > 15) difficulty = "Hard";
     }

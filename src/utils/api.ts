@@ -78,3 +78,54 @@ export async function searchRecipes(query: string) {
     return [];
   }
 }
+
+interface AdvancedSearchParams {
+  ingredients?: string[];
+  cuisines?: string[];
+  nutrients?: {
+    [key: string]: number;
+  };
+}
+
+export async function searchRecipesWithFilters(params: AdvancedSearchParams) {
+  try {
+    const queryParams = new URLSearchParams();
+    
+    // Add base params
+    queryParams.append('apiKey', API_KEY || '');
+    queryParams.append('number', '20');
+    queryParams.append('addRecipeInformation', 'true');
+    queryParams.append('fillIngredients', 'true');
+
+    if (params.ingredients?.length) {
+      queryParams.append('includeIngredients', params.ingredients.join(','));
+    }
+
+    if (params.cuisines?.length) {
+      queryParams.append('cuisine', params.cuisines.join(','));
+    }
+
+    if (params.nutrients) {
+      Object.entries(params.nutrients).forEach(([nutrient, value]) => {
+        queryParams.append(`min${nutrient.charAt(0).toUpperCase() + nutrient.slice(1)}`, '0');
+        queryParams.append(`max${nutrient.charAt(0).toUpperCase() + nutrient.slice(1)}`, value.toString());
+      });
+    }
+
+    console.log(queryParams.toString());
+    const response = await fetch(
+      `${BASE_URL}/recipes/complexSearch?${queryParams.toString()}`,
+      { next: { revalidate: 0 } }
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch recipes');
+    }
+
+    const data: { results: IRecipe[] } = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Error searching recipes with filters:', error);
+    return [];
+  }
+}
